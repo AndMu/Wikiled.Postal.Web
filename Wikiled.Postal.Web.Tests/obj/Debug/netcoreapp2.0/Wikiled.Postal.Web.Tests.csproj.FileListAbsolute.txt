@@ -1,0 +1,9 @@
+C:\Code\Repos\Wikiled.Postal.Web\Wikiled.Postal.Web.Tests\bin\Debug\netcoreapp2.0\Wikiled.Postal.Web.Tests.deps.json
+C:\Code\Repos\Wikiled.Postal.Web\Wikiled.Postal.Web.Tests\bin\Debug\netcoreapp2.0\Wikiled.Postal.Web.Tests.dll
+C:\Code\Repos\Wikiled.Postal.Web\Wikiled.Postal.Web.Tests\obj\Debug\netcoreapp2.0\Wikiled.Postal.Web.Tests.csprojResolveAssemblyReference.cache
+C:\Code\Repos\Wikiled.Postal.Web\Wikiled.Postal.Web.Tests\obj\Debug\netcoreapp2.0\Wikiled.Postal.Web.Tests.csproj.CoreCompileInputs.cache
+C:\Code\Repos\Wikiled.Postal.Web\Wikiled.Postal.Web.Tests\obj\Debug\netcoreapp2.0\Wikiled.Postal.Web.Tests.AssemblyInfoInputs.cache
+C:\Code\Repos\Wikiled.Postal.Web\Wikiled.Postal.Web.Tests\obj\Debug\netcoreapp2.0\Wikiled.Postal.Web.Tests.AssemblyInfo.cs
+C:\Code\Repos\Wikiled.Postal.Web\Wikiled.Postal.Web.Tests\bin\Debug\netcoreapp2.0\Wikiled.Postal.Web.Tests.pdb
+C:\Code\Repos\Wikiled.Postal.Web\Wikiled.Postal.Web.Tests\obj\Debug\netcoreapp2.0\Wikiled.Postal.Web.Tests.dll
+C:\Code\Repos\Wikiled.Postal.Web\Wikiled.Postal.Web.Tests\obj\Debug\netcoreapp2.0\Wikiled.Postal.Web.Tests.pdb

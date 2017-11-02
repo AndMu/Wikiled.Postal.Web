@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  wikiled.postal.web:
+    image: wikiled.postal.web
+    build:
+      context: ./Wikiled.Postal.Web
+      dockerfile: Dockerfile
