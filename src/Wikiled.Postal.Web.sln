@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wikiled.Postal.Web", "Wikil
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{7726E54A-9BC0-4618-8BBB-9E1D0D9CF982}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wikiled.Postal.Web.Tests", "..\Wikiled.Postal.Web.Tests\Wikiled.Postal.Web.Tests.csproj", "{8C672A17-3F2C-47DA-8BED-A01DFD0A79D3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wikiled.Postal.Web.Tests", "Wikiled.Postal.Web.Tests\Wikiled.Postal.Web.Tests.csproj", "{8C672A17-3F2C-47DA-8BED-A01DFD0A79D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
