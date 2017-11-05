@@ -6,9 +6,9 @@ COPY . .
 
 RUN dotnet restore
 RUN dotnet build
-RUN npm install \ &&
-	npm install -g @angular/cli \ &&
-	npm run build:prod	
+RUN npm install \ 
+	&& npm install -g @angular/cli \
+	&& npm run build:prod	
 
 RUN dotnet publish --output /output --configuration Release
 
