@@ -1,8 +1,10 @@
-version: '3'
+version: '2'
 
 services:
-  wikiled.postal.web:
-    image: wikiled.postal.web
+  Postal:
+    image: PostalWeb
     build:
-      context: ./Wikiled.Postal.Web
+      context: .
       dockerfile: Dockerfile
+    ports:
+      - "80:80"

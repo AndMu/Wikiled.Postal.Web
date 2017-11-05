@@ -1,4 +1,31 @@
-<h1>Application says what?</h1>
-<ul>
-  <li *ngFor="let value of apiValues">{{value}}</li>
-</ul>
+<h1>Free UK Postal Code search</h1>
+<link rel="stylesheet" href="/node_modules/@progress/kendo-theme-material/dist/all.css" />
+<div class="survey-block">
+  <div class="card-block">
+    <label [for]="autocomplete">Please enter your <b>Post Code</b>: </label>
+
+    <kendo-autocomplete #autocomplete
+                        required
+                        [data]="data"
+                        [suggest]="true"
+                        [filterable]="true"
+                        (open)="onOpenPost($event)"
+                        (valueChange)="onValueChangePost($event)"
+                        (filterChange)="onFilterChangePost($event)"
+                        [valueField]="'postalCode'">
+    </kendo-autocomplete>
+  </div>
+  <div class="card-block">
+    <div class="row">
+      Your Local Authority: <b>{{selectedLocalAuthority}}</b>
+    </div>
+    <div class="row">
+      Your Selected Post Code: <b>{{selectedPostCode}}</b>
+    </div>
+  </div>
+  <div class="card-block" *ngIf="isBusy">
+    <mat-progress-spinner class="example-margin"
+                         mode="indeterminate">
+    </mat-progress-spinner>
+  </div>
+</div>
