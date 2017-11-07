@@ -40,7 +40,9 @@
     "hammerjs": "^2.0.8",
     "observable-props": "^2.0.0",
     "rxjs": "^5.5.2",
-    "zone.js": "^0.8.14"
+    "zone.js": "^0.8.14",
+    "jquery": "^1.9.1 || ^2.0 || ^3.0",
+    "tether": "^1.4.0"
   },
   "devDependencies": {
     "@angular/cli": "1.5.0",
