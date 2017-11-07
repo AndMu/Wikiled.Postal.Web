@@ -1,5 +1,4 @@
-<h1>Free UK Postal Code search</h1>
-<link rel="stylesheet" href="/node_modules/@progress/kendo-theme-material/dist/all.css" />
+<h1>Free UK Postal Code search and free API</h1>
 <div class="survey-block">
   <div class="card-block">
     <label [for]="autocomplete">Please enter your <b>Post Code</b>: </label>
@@ -17,10 +16,10 @@
   </div>
   <div class="card-block">
     <div class="row">
-      Your Local Authority: <b>{{selectedLocalAuthority}}</b>
+      Selected Local Authority: <b>{{selectedLocalAuthority}}</b>
     </div>
     <div class="row">
-      Your Selected Post Code: <b>{{selectedPostCode}}</b>
+      Selected Post Code: <b>{{selectedPostCode}}</b>
     </div>
   </div>
   <div class="card-block" *ngIf="isBusy">

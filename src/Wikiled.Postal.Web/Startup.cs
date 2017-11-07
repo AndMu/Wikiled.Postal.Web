@@ -24,6 +24,7 @@ namespace Wikiled.Postal.Web
         .AddEnvironmentVariables();
       Configuration = builder.Build();
       env.ConfigureNLog("nlog.config");
+      LogManager.Configuration.Variables["logDirectory"] = Configuration.GetSection("logging").GetValue<string>("path");
       logger.Debug($"Starting: {Assembly.GetExecutingAssembly().GetName().Version}");
     }
 
@@ -56,9 +57,6 @@ namespace Wikiled.Postal.Web
       app.UseDefaultFiles();
       app.UseStaticFiles();
       app.AddNLogWeb();
-
-      env.ConfigureNLog("nlog.config");
-      LogManager.Configuration.Variables["logDirectory"] = Configuration.GetSection("logging").GetValue<string>("path");
     }
   }
 }
