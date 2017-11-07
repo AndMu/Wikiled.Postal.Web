@@ -1,30 +1,36 @@
-<h1>Free UK Postal Code search and free API</h1>
-<div class="survey-block">
-  <div class="card-block">
-    <label [for]="autocomplete">Please enter your <b>Post Code</b>: </label>
-
-    <kendo-autocomplete #autocomplete
-                        required
-                        [data]="data"
-                        [suggest]="true"
-                        [filterable]="true"
-                        (open)="onOpenPost($event)"
-                        (valueChange)="onValueChangePost($event)"
-                        (filterChange)="onFilterChangePost($event)"
-                        [valueField]="'postalCode'">
-    </kendo-autocomplete>
-  </div>
-  <div class="card-block">
-    <div class="row">
-      Selected Local Authority: <b>{{selectedLocalAuthority}}</b>
-    </div>
-    <div class="row">
-      Selected Post Code: <b>{{selectedPostCode}}</b>
-    </div>
-  </div>
-  <div class="card-block" *ngIf="isBusy">
-    <mat-progress-spinner class="example-margin"
-                         mode="indeterminate">
-    </mat-progress-spinner>
+<app-navbar></app-navbar>
+<div class="jumbotron">
+  <div class="container">
+    <h1>UK Postal Code and Address information</h1>
+    <p class="lead">And free API</p>
   </div>
 </div>
+<div class="container">
+  <div class="starter-template">
+    <h1></h1>
+
+    <div class="survey-block">
+      <div class="card-block">
+        <p>
+          <b>Address information</b>
+        </p>
+        <label [for]="autocomplete">http://api.topostcode.co.uk/address/</label>
+
+        <kendo-autocomplete #autocomplete
+                            required
+                            [data]="data"
+                            [suggest]="true"
+                            [filterable]="true"
+                            (open)="onOpenPost($event)"
+                            (valueChange)="onValueChangePost($event)"
+                            (filterChange)="onFilterChangePost($event)"
+                            [valueField]="'postalCode'">
+        </kendo-autocomplete>        
+        <mat-nav-list>
+          <mat-list-item *ngFor="let address of addressData">{{ address.postTown }}, {{ address.buildingName}} {{address.dependentLocality}} {{address.buildingNumber}}, {{address.thoroughfare}} {{address.dependentThoroughfare}} {{address.subBuildingName}}</mat-list-item>
+        </mat-nav-list>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -2,6 +2,7 @@ import { Component, ViewChild, OnInit, Input, ViewEncapsulation } from '@angular
 import { FormGroup } from '@angular/forms';
 import { PostalService } from './service/postal.service';
 import { PostalData } from './service/postal.Model';
+import { AddressData } from './service/address.Model';
 import { LocalAuthority } from './service/authority.model';
 import 'rxjs/add/operator/map'; // imports just map
 import 'rxjs/add/operator/mergeMap'; // just mergeMap
@@ -22,6 +23,8 @@ export class AppComponent implements OnInit {
   public data: PostalData[] = [];
 
   public selectedArea: PostalData;
+
+  public addressData: AddressData[] = [];
 
   public selectedPostCode: string;
 
@@ -46,7 +49,7 @@ export class AppComponent implements OnInit {
         this.data = item;
         this.autocomplete.loading = false;
         this.autocomplete.toggle(true);
-      });
+        });      
   }
 
   public onOpenPost(event: any): void {
@@ -63,8 +66,12 @@ export class AppComponent implements OnInit {
       this.selectedLocalAuthority = this.selectedArea.borough;
       this.selectedPostCode = this.selectedArea.postalCode;
     }
-  }
 
+    this.postalService.findAddress(event)
+        .subscribe(item => {
+          this.addressData = item;
+        });
+  }
 
   public onFilterChangePost(event: any): void {
   }
