@@ -6,7 +6,9 @@ COPY Wikiled.Postal.Web .
 
 RUN dotnet restore
 RUN dotnet build
-RUN npm install -g @angular/cli && npm install && npm run build:prod	
+RUN npm install -g @angular/cli
+RUN npm install 
+RUN npm run build:prod	
 RUN dotnet publish --output /output --configuration Release
 
 FROM microsoft/aspnetcore:2.0.0
