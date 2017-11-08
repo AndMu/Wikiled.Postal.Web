@@ -25,10 +25,10 @@
                             (valueChange)="onValueChangePost($event)"
                             (filterChange)="onFilterChangePost($event)"
                             [valueField]="'postalCode'">
-        </kendo-autocomplete>        
-        <mat-nav-list>
-          <mat-list-item *ngFor="let address of addressData">{{ address.postTown }}, {{ address.buildingName}} {{address.dependentLocality}} {{address.buildingNumber}}, {{address.thoroughfare}} {{address.dependentThoroughfare}} {{address.subBuildingName}}</mat-list-item>
-        </mat-nav-list>
+        </kendo-autocomplete>
+        <ul>
+          <li *ngFor="let obj of addressData">{{obj | json}}</li>
+        </ul>        
       </div>
     </div>
   </div>
