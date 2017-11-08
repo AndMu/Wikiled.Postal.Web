@@ -10,3 +10,18 @@
   color: #fff;
   text-align: center;
 }
+
+.json-list li {
+  margin: 10px 0px 0px 0px;
+  list-style: none;
+  text-align: center;
+}
+
+.content {
+  margin: 10px 0px 0px 0px;
+}
+
+.k-textarea-address {
+  width: 300px;
+  height: 400px;
+}

@@ -1,36 +1,28 @@
 <app-navbar></app-navbar>
 <div class="jumbotron">
   <div class="container">
-    <h1>UK Postal Code and Address information</h1>
-    <p class="lead">And free API</p>
+    <h1>UK Postal Code API</h1>
+    <p class="lead">Address information and free API</p>
   </div>
 </div>
 <div class="container">
   <div class="starter-template">
-    <h1></h1>
-
-    <div class="survey-block">
-      <div class="card-block">
-        <p>
-          <b>Address information</b>
-        </p>
-        <label [for]="autocomplete">http://api.topostcode.co.uk/address/</label>
-
-        <kendo-autocomplete #autocomplete
-                            required
-                            [data]="data"
-                            [suggest]="true"
-                            [filterable]="true"
-                            (open)="onOpenPost($event)"
-                            (valueChange)="onValueChangePost($event)"
-                            (filterChange)="onFilterChangePost($event)"
-                            [valueField]="'postalCode'">
-        </kendo-autocomplete>
-        <ul>
-          <li *ngFor="let obj of addressData">{{obj | json}}</li>
-        </ul>        
-      </div>
-    </div>
+    <kendo-tabstrip>
+      <kendo-tabstrip-tab [title]="'Address'" [selected]="true">
+        <ng-template kendoTabContent>
+          <div class="content">
+            <address-root></address-root>
+          </div>
+        </ng-template>
+      </kendo-tabstrip-tab>
+      <kendo-tabstrip-tab [title]="'Location'" >
+        <ng-template kendoTabContent>
+          <div class="content">
+          </div>
+        </ng-template>
+      </kendo-tabstrip-tab>
+    </kendo-tabstrip>
   </div>
 </div>
+
 

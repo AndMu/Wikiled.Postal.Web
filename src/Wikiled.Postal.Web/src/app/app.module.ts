@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { LayoutModule } from '@progress/kendo-angular-layout';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -9,6 +10,7 @@ import { LabelModule } from '@progress/kendo-angular-label';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { DialogModule } from '@progress/kendo-angular-dialog';
 import { AppComponent } from './app.component';
+import { PanelBarModule } from '@progress/kendo-angular-layout';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { 
   MatButtonModule, MatCheckboxModule, MatInputModule, MatAutocompleteModule, MatProgressSpinnerModule
@@ -23,14 +25,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import 'hammerjs';
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
+import { AddressComponent } from './tabs/address.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppNavbarComponent
+    AppNavbarComponent,
+    AddressComponent
   ],
   imports: [
     DialogModule,
+    LayoutModule,
+    PanelBarModule,
     MatProgressSpinnerModule,
     DropDownsModule,
     MatListModule,

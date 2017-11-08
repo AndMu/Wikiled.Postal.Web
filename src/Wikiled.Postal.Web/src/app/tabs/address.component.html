@@ -1,0 +1,19 @@
+<button kendoButton [primary]="true">GET</button>
+<label [for]="autocomplete">http://api.topostcode.co.uk/address/</label>
+<kendo-autocomplete #autocomplete
+                    required
+                    [data]="data"
+                    [suggest]="true"
+                    [filterable]="true"
+                    (open)="onOpenPost($event)"
+                    (valueChange)="onValueChangePost($event)"
+                    (filterChange)="onFilterChangePost($event)"
+                    [valueField]="'postalCode'">
+</kendo-autocomplete>
+<button kendoButton [primary]="true" (onclick)="onFilterChangePost($event)">Query</button>
+<ul class="json-list">
+  <li *ngFor="let obj of addressData">
+    <textarea class="k-textarea-address">{{obj | json}}
+              </textarea>
+  </li>
+</ul>
