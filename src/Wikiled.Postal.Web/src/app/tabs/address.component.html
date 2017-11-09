@@ -1,19 +1,22 @@
-<button kendoButton [primary]="true">GET</button>
-<label [for]="autocomplete">http://api.topostcode.co.uk/address/</label>
-<kendo-autocomplete #autocomplete
-                    required
-                    [data]="data"
-                    [suggest]="true"
-                    [filterable]="true"
-                    (open)="onOpenPost($event)"
-                    (valueChange)="onValueChangePost($event)"
-                    (filterChange)="onFilterChangePost($event)"
-                    [valueField]="'postalCode'">
-</kendo-autocomplete>
-<button kendoButton [primary]="true" (onclick)="onFilterChangePost($event)">Query</button>
-<ul class="json-list">
-  <li *ngFor="let obj of addressData">
-    <textarea class="k-textarea-address">{{obj | json}}
-              </textarea>
-  </li>
-</ul>
+<div class="input">
+  <a class="btn btn-primary btn-lg disabled" href="#" role="button">GET</a>
+  <label [for]="autocomplete">http://api.topostcode.co.uk/address/</label>
+  <kendo-autocomplete #autocomplete
+                      required
+                      [data]="data"
+                      [suggest]="true"
+                      [filterable]="true"
+                      [placeholder]="'e.g. E14 7FX'"
+                      (open)="onOpenPost($event)"
+                      (valueChange)="onValueChangePost($event)"
+                      (filterChange)="onFilterChangePost($event)"
+                      [valueField]="'postalCode'">
+  </kendo-autocomplete>
+  <button kendoButton [primary]="true" (click)="onSearchClick()">Query</button>
+</div>
+<div class="count">
+  <p class="font-weight-bold">Total found: {{addressData.length}}</p>
+</div>
+<div class="result" *ngIf="addressData.length > 0">
+  <textarea class="k-textarea-address bg-light">{{addressData | json}} </textarea>
+</div>

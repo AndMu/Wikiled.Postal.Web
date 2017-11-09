@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit} from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { PostalService } from '../service/postal.service';
 import { PostalData } from '../service/postal.Model';
 import { AddressData } from '../service/address.Model';
@@ -19,57 +19,58 @@ export class AddressComponent implements OnInit {
 
   public data: PostalData[] = [];
 
-  public selectedArea: PostalData;
-
   public addressData: AddressData[] = [];
-
-  public selectedPostCode: string;
 
   public isBusy: boolean;
 
-  public selectedLocalAuthority: string;
-
   constructor(private postalService: PostalService) { }
-  
+
   ngOnInit() {
-  
+
   }
 
   ngAfterViewInit() {
-      var filtered = this.autocomplete.filterChange.asObservable()
-          .do(() => {
-              this.autocomplete.loading = true;
-          })
-          .filter(item => item.length > 2);
-      filtered.switchMap(value => this.postalService.findLocation(value))
+    this.autocomplete.filterChange.asObservable()
+      .do(() => {
+        this.autocomplete.loading = true;
+      })
+      .filter(item => item.length > 2)
+      .switchMap(value => this.postalService.findLocation(value))
       .subscribe(item => {
         this.data = item;
         this.autocomplete.loading = false;
         this.autocomplete.toggle(true);
-        });      
+      });
   }
 
   public onOpenPost(event: any): void {
-      if (this.data == null ||
-          this.data.length === 0) {
-          event.preventDefault();
-      }
-  }
-  
-  public onValueChangePost(event: any): void {
-    this.autocomplete.loading = false;
-    this.selectedArea = this.data.find(item => item.postalCode.toUpperCase() === event.toUpperCase());
-    if (this.selectedArea != null) {
-      this.selectedLocalAuthority = this.selectedArea.borough;
-      this.selectedPostCode = this.selectedArea.postalCode;
+    if (this.data == null ||
+      this.data.length === 0) {
+      event.preventDefault();
     }
+  }
 
-    this.postalService.findAddress(event)
-        .subscribe(item => {
-          this.addressData = item;
-        });
+  public onValueChangePost(event: any): void {
+    this.searchAddress(event);
+  }
+
+  public onSearchClick(): void{
+     this.searchAddress(this.autocomplete.value);
   }
 
   public onFilterChangePost(event: any): void {
+    this.autocomplete.loading = false;    
+  }
+  
+  private searchAddress(postCode: string): void {
+
+    this.autocomplete.loading = false;
+    if (postCode != null && postCode.length > 5) {
+      this.postalService.findAddress(postCode)
+        .subscribe(item => {
+          this.autocomplete.loading = false;
+          this.addressData = item;
+        });
+    }
   }
 }

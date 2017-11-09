@@ -11,17 +11,10 @@
   text-align: center;
 }
 
-.json-list li {
-  margin: 10px 0px 0px 0px;
-  list-style: none;
-  text-align: center;
-}
-
 .content {
-  margin: 10px 0px 0px 0px;
+  margin: 10px 0 0 0;
 }
 
-.k-textarea-address {
-  width: 300px;
-  height: 400px;
+.k-icon-48 {
+  font-size: 48px; /* Sets icon size to 64px */
 }
