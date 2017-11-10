@@ -1,9 +1,9 @@
-version: '3'
+version: "3"
 
 services:
   wikiled.postal.web:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - "80"
 networks:
