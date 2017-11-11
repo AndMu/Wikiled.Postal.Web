@@ -5,11 +5,17 @@
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
     <TypeScriptToolsVersion>2.3</TypeScriptToolsVersion>
   </PropertyGroup>
-
+  
   <ItemGroup>
-    <None Update="src\**\*;node_modules\**\*;Views\**\*;wwwroot\**\*">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </None>
+    <Content Remove="src\**" />
+    <Content Remove="e2e\**" />
+    <Content Remove="wwwroot\**" />
+    <Content Remove=".angular-cli.json" />
+    <Content Remove="package.json" />
+    <Content Remove="package-lock.json" />
+    <Content Remove="proxy.config.json" />
+    <Content Remove="tsconfig.json" />
+    <Content Remove="tslint.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,18 +36,14 @@
     </Content>
   </ItemGroup>
 
-  <Target Name="NpmCommands" AfterTargets="Build">
-    <Exec Command="npm install" />
-  </Target>
-
   <Target Name="RunWebpack" AfterTargets="ComputeFilesToPublish">
     <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
     <Exec Command="npm install" />
-    <Exec Command="npm build:prod" />
+    <Exec Command="npm run build:prod" />
 
     <!-- Include the newly-built files in the publish output -->
     <ItemGroup>
-      <DistFiles Include="wwwroot\dist\**; src\dist\**" />
+      <DistFiles Include="wwwroot\**" />
       <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
         <RelativePath>%(DistFiles.Identity)</RelativePath>
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
