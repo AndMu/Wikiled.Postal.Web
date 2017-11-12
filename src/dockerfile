@@ -1,15 +1,11 @@
-FROM microsoft/aspnetcore-build:2.0.0 AS build
+FROM microsoft/aspnetcore-build:latest AS build
 
 WORKDIR /code
 
 COPY Wikiled.Postal.Web .
-
-RUN dotnet restore
-RUN dotnet build
-RUN npm install -g @angular/cli && npm install && npm run build:prod	
 RUN dotnet publish --output /output --configuration Release
 
-FROM microsoft/aspnetcore:2.0.0
+FROM microsoft/aspnetcore:latest
 
 COPY --from=build /output /app
 

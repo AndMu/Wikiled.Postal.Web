@@ -1,11 +1,9 @@
 version: "3"
 
 services:
-  wikiled.postal.web:
-    image: wikiled.postal.web
+  wikiled.postal.web:    
     build:
       context: ./wikiled.postal.web
-      dockerfile: Dockerfile
-    command: /bin/bash -c "dotnet restore ./Wikiled.Postal.Web.sln && dotnet publish ./Wikiled.Postal.Web.sln -c Release -o ./obj/Docker/publish"
+      dockerfile: dockerfile    
     ports:
       - "80:80"

@@ -28,7 +28,7 @@ export class PostalService {
   }
 
   private GetQuery(type: string, code: string): string {
-    var query = `http://api.topostcode.co.uk/Postal/${type}/${code}`;
+    var query = `http://api.wikiled.com/Postal/${type}/${code}`;
     return query;
   }
 

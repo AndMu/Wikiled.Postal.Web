@@ -14,7 +14,7 @@ describe('AddressComponent', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [DropDownsModule, ButtonsModule, HttpClientModule, HttpClientTestingModule],
+            imports: [DropDownsModule, ButtonsModule, HttpClientModule, HttpClientTestingModule ],
             declarations: [AddressComponent],
             providers: [PostalService]
         });
