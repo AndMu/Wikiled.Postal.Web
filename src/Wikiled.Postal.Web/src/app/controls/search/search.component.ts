@@ -1,27 +1,26 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
-import { PostalService } from '../service/postal.service';
-import { PostalData } from '../service/postal.Model';
-import { AddressData } from '../service/address.Model';
+import { Component, ViewChild, OnInit, EventEmitter } from '@angular/core';
+import { PostalService } from '../../service/postal.service';
+import { PostalData } from '../../service/postal.Model';
 import 'rxjs/add/operator/map'; // imports just map
 import 'rxjs/add/operator/mergeMap'; // just mergeMap
 import 'rxjs/add/operator/switchMap'; // just switchMap
 
 @Component({
   providers: [PostalService],
-  selector: 'address-root',
-  templateUrl: './address.component.html',
-  styleUrls: ['./address.component.css']
+  selector: 'search-root',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css']
 })
 
-export class AddressComponent implements OnInit {
+export class SearchComponent implements OnInit {
 
   @ViewChild("autocomplete") public autocomplete: any;
 
   public data: PostalData[] = [];
 
-  public addressData: AddressData[] = [];
-
   public isBusy: boolean;
+
+  public onSearch = new EventEmitter<string>();
 
   constructor(private postalService: PostalService) { }
 
@@ -51,26 +50,15 @@ export class AddressComponent implements OnInit {
   }
 
   public onValueChangePost(event: any): void {
-    this.searchAddress(event);
+      this.onSearch.emit(event);
   }
 
   public onSearchClick(): void{
-     this.searchAddress(this.autocomplete.value);
+      this.onSearch.emit(this.autocomplete.value);
   }
 
   public onFilterChangePost(event: any): void {
     this.autocomplete.loading = false;    
   }
   
-  private searchAddress(postCode: string): void {
-
-    this.autocomplete.loading = false;
-    if (postCode != null && postCode.length > 5) {
-      this.postalService.findAddress(postCode)
-        .subscribe(item => {
-          this.autocomplete.loading = false;
-          this.addressData = item;
-        });
-    }
-  }
 }

@@ -14,9 +14,3 @@
   </kendo-autocomplete>
   <button kendoButton [primary]="true" (click)="onSearchClick()">Query</button>
 </div>
-<div class="count">
-  <p class="font-weight-bold">Total found: {{addressData.length}}</p>
-</div>
-<div class="result" *ngIf="addressData.length > 0">
-  <textarea class="k-textarea-address bg-light">{{addressData | json}} </textarea>
-</div>

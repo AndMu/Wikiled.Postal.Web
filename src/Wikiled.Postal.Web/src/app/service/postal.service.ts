@@ -8,28 +8,27 @@ import { ApiResponse } from "./result.model";
 
 @Injectable()
 export class PostalService {
-  constructor(private http: HttpClient) {
-  }
+    constructor(private http: HttpClient) {
+    }
 
-  public findLocation(code: string): Observable<PostalData[]> {
-    return this.getData<PostalData[]>("location", code);
-  }
+    public findLocation(code: string): Observable<PostalData[]> {
+        return this.getData<PostalData[]>("location", code);
+    }
 
-  public findAddress(code: string): Observable<AddressData[]> {
-    return this.getData<AddressData[]>("address", code);
-  }
+    public findAddress(code: string): Observable<AddressData[]> {
+        return this.getData<AddressData[]>("address", code);
+    }
 
-  private getData<T>(type: string, code: string): Observable<T> {
-    return this.http.get<ApiResponse<T>>(this.GetQuery(type, code))
-      .map(item => {
-        var received = item.result;
-        return received;
-      });
-  }
+    private getData<T>(type: string, code: string): Observable<T> {
+        return this.http.get<ApiResponse<T>>(this.GetQuery(type, code))
+            .map(item => {
+                var received = item.result;
+                return received;
+            });
+    }
 
-  private GetQuery(type: string, code: string): string {
-    var query = `http://api.wikiled.com/Postal/${type}/${code}`;
-    return query;
-  }
-
+    private GetQuery(type: string, code: string): string {
+        var query = `http://api.topostcode.co.uk/address/${type}/${code}`;
+        return query;
+    }
 }

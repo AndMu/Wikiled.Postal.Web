@@ -1,0 +1,7 @@
+<search-root></search-root>
+<div class="count">
+  <p class="font-weight-bold">Total found: {{locationData.length}}</p>
+</div>
+<div class="result" *ngIf="addressData.length > 0">
+  <textarea class="k-textarea-address bg-light">{{locationData | json}} </textarea>
+</div>
