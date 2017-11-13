@@ -7,7 +7,7 @@ import 'rxjs/add/operator/switchMap'; // just switchMap
 
 @Component({
     providers: [PostalService],
-    selector: 'location-root',
+    selector: 'app-location',
     templateUrl: './location.component.html',
     styleUrls: ['./location.component.css']
 })
@@ -19,13 +19,12 @@ export class LocationComponent implements OnInit {
     constructor(private postalService: PostalService) { }
 
     ngOnInit() {
-
     }
 
-    private searchAddress(postCode: string): void {
+    private onSearch(event): void {
 
-        if (postCode != null && postCode.length > 5) {
-            this.postalService.findLocation(postCode)
+        if (event != null && event.length > 5) {
+            this.postalService.findLocation(event)
                 .subscribe(item => {
                     this.data = item;
                 });

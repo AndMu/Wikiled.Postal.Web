@@ -24,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Import the ButtonsModule
 
 import 'hammerjs';
+import { ResultComponent } from './controls/result/result.component';
 import { AppNavbarComponent } from './controls/app-navbar/app-navbar.component';
 import { AddressComponent } from './controls/tabs/address/address.component';
 import { LocationComponent } from './controls/tabs/location/location.component';
@@ -32,6 +33,7 @@ import { SearchComponent } from './controls/search/search.component';
 @NgModule({
     declarations: [
         AppComponent,
+        ResultComponent,
         AppNavbarComponent,
         LocationComponent,
         SearchComponent,

@@ -1,0 +1,6 @@
+<div class="count">
+  <p class="font-weight-bold">Total found: {{result.length}}</p>
+</div>
+<div class="result" *ngIf="result.length > 0">
+  <textarea class="k-textarea-address bg-light">{{result | json}} </textarea>
+</div>

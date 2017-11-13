@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit, EventEmitter } from '@angular/core';
+import { Component, ViewChild, OnInit, EventEmitter, Output, Input, AfterViewInit } from '@angular/core';
 import { PostalService } from '../../service/postal.service';
 import { PostalData } from '../../service/postal.Model';
 import 'rxjs/add/operator/map'; // imports just map
@@ -6,59 +6,62 @@ import 'rxjs/add/operator/mergeMap'; // just mergeMap
 import 'rxjs/add/operator/switchMap'; // just switchMap
 
 @Component({
-  providers: [PostalService],
-  selector: 'search-root',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+    providers: [PostalService],
+    selector: 'app-search',
+    templateUrl: './search.component.html',
+    styleUrls: ['./search.component.css']
 })
+export class SearchComponent implements OnInit, AfterViewInit {
 
-export class SearchComponent implements OnInit {
+    @ViewChild('autocomplete')
+    public autocomplete: any;
 
-  @ViewChild("autocomplete") public autocomplete: any;
+    public data: PostalData[] = [];
 
-  public data: PostalData[] = [];
+    public isBusy: boolean;
 
-  public isBusy: boolean;
+    @Input()
+    public url: string;
 
-  public onSearch = new EventEmitter<string>();
+    @Output()
+    public onSearch = new EventEmitter<string>();
 
-  constructor(private postalService: PostalService) { }
+    constructor(private postalService: PostalService) {}
 
-  ngOnInit() {
-
-  }
-
-  ngAfterViewInit() {
-    this.autocomplete.filterChange.asObservable()
-      .do(() => {
-        this.autocomplete.loading = true;
-      })
-      .filter(item => item.length > 2)
-      .switchMap(value => this.postalService.findLocation(value))
-      .subscribe(item => {
-        this.data = item;
-        this.autocomplete.loading = false;
-        this.autocomplete.toggle(true);
-      });
-  }
-
-  public onOpenPost(event: any): void {
-    if (this.data == null ||
-      this.data.length === 0) {
-      event.preventDefault();
+    ngOnInit() {
     }
-  }
 
-  public onValueChangePost(event: any): void {
-      this.onSearch.emit(event);
-  }
+    ngAfterViewInit() {
+        this.autocomplete.filterChange.asObservable()
+            .do(() => {
+                this.autocomplete.loading = true;
+            })
+            .filter(item => item.length > 2)
+            .switchMap(value => this.postalService.findLocation(value))
+            .subscribe(item => {
+                this.data = item;
+                this.autocomplete.loading = false;
+                this.autocomplete.toggle(true);
+            });
+    }
 
-  public onSearchClick(): void{
-      this.onSearch.emit(this.autocomplete.value);
-  }
+    public onOpenPost(event: any): void {
+        if (this.data == null ||
+            this.data.length === 0) {
+            event.preventDefault();
+        }
+    }
 
-  public onFilterChangePost(event: any): void {
-    this.autocomplete.loading = false;    
-  }
-  
+    public onValueChangePost(event: any): void {
+
+        this.onSearch.emit(event);
+    }
+
+    public onSearchClick(): void {
+        this.onSearch.emit(this.autocomplete.value);
+    }
+
+    public onFilterChangePost(event: any): void {
+        this.autocomplete.loading = false;
+    }
 }
