@@ -22,7 +22,7 @@ export class AddressComponent implements OnInit {
     ngOnInit() {
     }
 
-    private onSearch(event): void {
+    public onSearch(event): void {
 
         if (event != null && event.length > 5) {
             this.postalService.findAddress(event)
