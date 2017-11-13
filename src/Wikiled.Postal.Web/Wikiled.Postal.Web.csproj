@@ -11,8 +11,6 @@
     <Content Remove="e2e\**" />
     <Content Remove="wwwroot\**" />
     <Content Remove=".angular-cli.json" />
-    <Content Remove="package.json" />
-    <Content Remove="package-lock.json" />
     <Content Remove="proxy.config.json" />
     <Content Remove="tsconfig.json" />
     <Content Remove="tslint.json" />
