@@ -6,10 +6,6 @@
     <TypeScriptToolsVersion>2.3</TypeScriptToolsVersion>
   </PropertyGroup>
   
-  <PropertyGroup>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-  </PropertyGroup> 
-    
   <ItemGroup>
     <Content Remove="src\**" />
     <Content Remove="e2e\**" />
@@ -18,10 +14,6 @@
     <Content Remove="proxy.config.json" />
     <Content Remove="tsconfig.json" />
     <Content Remove="tslint.json" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <Compile Include="..\GlobalAssemblyInfo.cs" Link="Properties\GlobalAssemblyInfo.cs" />
   </ItemGroup>
 
   <ItemGroup>
