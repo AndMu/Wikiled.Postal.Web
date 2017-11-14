@@ -22,6 +22,9 @@ export class SearchComponent implements OnInit, AfterViewInit {
 
     @Input()
     public url: string;
+	
+	@Output()
+    public onDataChanged = new EventEmitter<PostalData[]>();
 
     @Output()
     public onSearch = new EventEmitter<string>();
@@ -42,6 +45,7 @@ export class SearchComponent implements OnInit, AfterViewInit {
                 this.data = item;
                 this.autocomplete.loading = false;
                 this.autocomplete.toggle(true);
+				this.onDataChanged.emit(item);
             });
     }
 

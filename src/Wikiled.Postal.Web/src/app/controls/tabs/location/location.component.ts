@@ -21,14 +21,8 @@ export class LocationComponent implements OnInit {
     ngOnInit() {
     }
 
-    public onSearch(event): void {
-
-        if (event != null && event.length > 5) {
-            this.postalService.findLocation(event)
-                .subscribe(item => {
-                    this.data = item;
-                });
-        }
+    public onDataChanged(event): void {
+        this.data = event;       
     }
 }
 
