@@ -21,6 +21,9 @@ export class SearchComponent implements OnInit, AfterViewInit {
     public isBusy: boolean;
 
     @Input()
+    public valueField: string;    
+
+    @Input()
     public url: string;
 	
 	@Output()

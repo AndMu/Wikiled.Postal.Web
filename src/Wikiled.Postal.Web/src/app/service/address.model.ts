@@ -16,4 +16,21 @@ export class AddressData {
     postcodeType: string;
     suOrganisationIdentifier: string;
     deliveryPointSuffix: string;
+
+    get description(): string {
+        let description = this.addString(this.thoroughfare, this.buildingNumber.toString());
+        description = this.addString(description, this.buildingName);
+        description = this.addString(description, this.subBuildingName);
+        return description;
+    }
+
+    private addString(one: string, two: string): string{
+
+        if (one == null ||
+            one.length === 0) {
+            return two;
+        }
+
+        return `${one} ${two}`;
+    }
   }

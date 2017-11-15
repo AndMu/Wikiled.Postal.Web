@@ -26,9 +26,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 import { ResultComponent } from './controls/result/result.component';
 import { AppNavbarComponent } from './controls/app-navbar/app-navbar.component';
-import { AddressComponent } from './controls/tabs/address/address.component';
-import { LocationComponent } from './controls/tabs/location/location.component';
+import { AddressComponent } from './controls/tabs/address.component';
+import { LocationComponent } from './controls/tabs/location.component';
 import { SearchComponent } from './controls/search/search.component';
+import { SimAddressComponent } from './controls/tabs/simaddress.component';
+
 
 @NgModule({
     declarations: [
@@ -37,7 +39,8 @@ import { SearchComponent } from './controls/search/search.component';
         AppNavbarComponent,
         LocationComponent,
         SearchComponent,
-        AddressComponent
+        AddressComponent,
+        SimAddressComponent
     ],
     imports: [
         DialogModule,

@@ -1,0 +1,3 @@
+<p *ngIf="description && description.length > 0" class="lead">{{description}}</p>
+<app-search (onSearch)="onSearch($event)" (onDataChanged)="onDataChanged($event)" [url]="url" [valueField]="valueField"></app-search>
+<app-result [result]="data"></app-result>
