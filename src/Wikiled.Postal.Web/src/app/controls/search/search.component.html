@@ -10,7 +10,7 @@
                       (open)="onOpenPost($event)"
                       (valueChange)="onValueChangePost($event)"
                       (filterChange)="onFilterChangePost($event)"
-                      [valueField]="valueField">
+                      [valueField]="'description()'">
   </kendo-autocomplete>
   <button kendoButton [primary]="true" (click)="onSearchClick()">Query</button>
 </div>

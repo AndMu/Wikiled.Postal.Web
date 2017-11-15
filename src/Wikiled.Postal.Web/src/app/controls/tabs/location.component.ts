@@ -20,8 +20,6 @@ export class LocationComponent implements OnInit {
 
     public url = 'http://api.topostcode.co.uk/postal/location/';
 
-    public valueField = 'postCode';
-
     constructor(private postalService: PostalService) { }
 
     ngOnInit() {

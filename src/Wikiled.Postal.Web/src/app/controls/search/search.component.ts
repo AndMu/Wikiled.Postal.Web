@@ -11,7 +11,7 @@ import 'rxjs/add/operator/switchMap'; // just switchMap
     templateUrl: './search.component.html',
     styleUrls: ['./search.component.css']
 })
-export class SearchComponent implements OnInit, AfterViewInit {
+export class SearchComponent<T> implements OnInit, AfterViewInit {
 
     @ViewChild('autocomplete')
     public autocomplete: any;
@@ -19,9 +19,6 @@ export class SearchComponent implements OnInit, AfterViewInit {
     public data: PostalData[] = [];
 
     public isBusy: boolean;
-
-    @Input()
-    public valueField: string;    
 
     @Input()
     public url: string;
