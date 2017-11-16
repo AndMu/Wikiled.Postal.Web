@@ -11,7 +11,7 @@ import 'rxjs/add/operator/switchMap'; // just switchMap
     templateUrl: './search.component.html',
     styleUrls: ['./search.component.css']
 })
-export class SearchComponent<T> implements OnInit, AfterViewInit {
+export class SearchComponent implements OnInit, AfterViewInit {
 
     @ViewChild('autocomplete')
     public autocomplete: any;
