@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { PostalData } from './postal.model';
 import { AddressData } from './address.model';
+import { ContactForm } from './contactform.model';
 import { ApiResponse } from './result.model';
 
 @Injectable()
@@ -10,6 +11,10 @@ export class PostalService {
     constructor(private http: HttpClient) {
     }
 
+    public sendForm(forn: ContactForm) {
+        this.http.post(`http://api.topostcode.co.uk/contact`, forn);
+    }
+    
     public findSimAddress(code: string): Observable<AddressData[]> {
         return this.getData<AddressData[]>('SimAddress', code);
     }
