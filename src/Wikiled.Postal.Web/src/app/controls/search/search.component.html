@@ -1,18 +1,3 @@
-<a class="btn btn-primary btn-lg disabled" href="#" role="button">GET</a>
-<label [for]="autocomplete">{{url}}</label>
-<kendo-autocomplete #autocomplete
-                    required
-                    [data]="data"
-                    [suggest]="true"
-                    [filterable]="true"
-                    [placeholder]="'e.g. E14 7FX'"
-                    (open)="onOpenPost($event)"
-                    (valueChange)="onValueChangePost($event)"
-                    (filterChange)="onFilterChangePost($event)"
-                    [valueField]="valueField">
-</kendo-autocomplete>
-<button kendoButton [primary]="true" (click)="onSearchClick()">Query</button>
-
 <div class="input">
   <a class="btn btn-primary btn-lg disabled" href="#" role="button">GET</a>
   <label [for]="autocomplete">{{url}}</label>
