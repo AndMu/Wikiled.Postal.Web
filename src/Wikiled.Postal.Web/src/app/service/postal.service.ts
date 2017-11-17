@@ -1,14 +1,22 @@
 import { Injectable } from '@angular/core';
-
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { PostalData } from './postal.model';
 import { AddressData } from './address.model';
+import { ContactForm } from './contactform.model';
 import { ApiResponse } from './result.model';
 
 @Injectable()
 export class PostalService {
     constructor(private http: HttpClient) {
+    }
+
+    public sendForm(forn: ContactForm) {
+        this.http.post(`http://api.topostcode.co.uk/contact`, forn);
+    }
+    
+    public findSimAddress(code: string): Observable<AddressData[]> {
+        return this.getData<AddressData[]>('SimAddress', code);
     }
 
     public findLocation(code: string): Observable<PostalData[]> {
@@ -20,13 +28,13 @@ export class PostalService {
     }
 
     private getData<T>(type: string, code: string): Observable<T> {
-        return this.http.get<ApiResponse<T>>(this.GetQuery(type, code))
+        return this.http.get<ApiResponse<T>>(this.getQuery(type, code))
             .map(item => {
                 return item.result;
             });
     }
 
-    private GetQuery(type: string, code: string): string {
+    private getQuery(type: string, code: string): string {
         const url = `http://api.topostcode.co.uk/postal/${type}/${code}`;
         return url;
     }

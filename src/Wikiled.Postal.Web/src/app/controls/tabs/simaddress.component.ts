@@ -25,14 +25,10 @@ export class SimAddressComponent implements OnInit  {
     ngOnInit() {
     }
 
-    public onDataChanged(event): void {
-        this.data = event;
-    }
+   public onSearch(event): void {
 
-    public onSearch(event): void {
-
-        if (event != null && event.length > 5) {
-            this.postalService.findAddress(event)
+        if (event != null && event.length >= 3) {
+            this.postalService.findSimAddress(event)
                 .subscribe(item => {
                     this.data = item;
                 });

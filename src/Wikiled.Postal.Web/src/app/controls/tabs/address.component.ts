@@ -20,8 +20,6 @@ export class AddressComponent implements OnInit  {
 
     public url = 'http://api.topostcode.co.uk/postal/address/';
 
-    public valueField = 'postCode';
-
     constructor(private postalService: PostalService) { }
 
     ngOnInit() {
