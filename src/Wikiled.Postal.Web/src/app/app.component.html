@@ -3,34 +3,58 @@
   <div class="container">
     <h1>FREE UK Postcode & Address API<span class="k-icon k-i-email k-icon-48"></span> </h1>
     <p class="lead">JSON API for Developers to query UK postcodes and addresses</p>
-	<p class="lead">The most up-to-date from Royal Mail's Postcode Address File</p>
   </div>
 </div>
 <div class="container">
-  <div class="starter-template">
-    <kendo-tabstrip>
-      <kendo-tabstrip-tab [title]="'Address'" [selected]="true">
-        <ng-template kendoTabContent>
-          <div class="content">
-            <app-address></app-address>
-          </div>
-        </ng-template>
-      </kendo-tabstrip-tab>
-      <kendo-tabstrip-tab [title]="'Location'">
-        <ng-template kendoTabContent>
-          <div class="content">
-            <app-location></app-location>
-          </div>
-        </ng-template>
-      </kendo-tabstrip-tab>
-      <kendo-tabstrip-tab [title]="'Similar Address'">
-        <ng-template kendoTabContent>
-          <div class="content">
-            <app-simaddress></app-simaddress>
-          </div>
-        </ng-template>
-      </kendo-tabstrip-tab>
-    </kendo-tabstrip>
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-4">
+      <h2>Royal Mail</h2>
+      <p> Updated with the latest data from Royal Mail</p>
+      <p><a class="btn btn-default" href="#api" role="button">API &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+      <h2>API</h2>
+      <p>Unlimited, simple and self-explanatory JSON  API</p>
+    </div>
+    <div class="col-md-4">
+      <h2>Contact</h2>
+      <p>If you need additional features, please do not hesitated - contact us</p>
+      <p><a class="btn btn-default" href="#contact" role="button">Contact &raquo;</a></p>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-9">
+      <kendo-tabstrip>
+        <kendo-tabstrip-tab [title]="'Address'" [selected]="true">
+          <ng-template kendoTabContent>
+            <div class="content">
+              <app-address></app-address>
+            </div>
+          </ng-template>
+        </kendo-tabstrip-tab>
+        <kendo-tabstrip-tab [title]="'Location'">
+          <ng-template kendoTabContent>
+            <div class="content">
+              <app-location></app-location>
+            </div>
+          </ng-template>
+        </kendo-tabstrip-tab>
+        <kendo-tabstrip-tab [title]="'Similar Address'">
+          <ng-template kendoTabContent>
+            <div class="content">
+              <app-simaddress></app-simaddress>
+            </div>
+          </ng-template>
+        </kendo-tabstrip-tab>
+      </kendo-tabstrip>
+    </div>
+    <div class="col-md-2">
+      <app-contact></app-contact>
+    </div>
   </div>
 </div>
 

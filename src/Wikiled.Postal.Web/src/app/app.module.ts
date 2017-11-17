@@ -30,6 +30,7 @@ import { AddressComponent } from './controls/tabs/address.component';
 import { LocationComponent } from './controls/tabs/location.component';
 import { SearchComponent } from './controls/search/search.component';
 import { SimAddressComponent } from './controls/tabs/simaddress.component';
+import { ContactComponent } from './controls/contact/contact.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { SimAddressComponent } from './controls/tabs/simaddress.component';
         LocationComponent,
         SearchComponent,
         AddressComponent,
-        SimAddressComponent
+        SimAddressComponent,
+        ContactComponent
     ],
     imports: [
         DialogModule,
