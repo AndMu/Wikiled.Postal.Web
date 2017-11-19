@@ -1,5 +1,6 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './contact.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
@@ -13,7 +14,7 @@ describe('ContactComponent', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [HttpClientModule, HttpClientTestingModule ],
+            imports: [HttpClientModule, HttpClientTestingModule, FormsModule, ReactiveFormsModule ],
             declarations: [ContactComponent],
             schemas: [NO_ERRORS_SCHEMA],
             providers: [PostalService]
