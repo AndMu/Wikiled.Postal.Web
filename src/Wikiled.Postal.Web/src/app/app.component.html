@@ -27,32 +27,35 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-9">
+
+    <div class="col-3">
+    </div>
+    <div class="col-6">
       <kendo-tabstrip>
         <kendo-tabstrip-tab [title]="'Address'" [selected]="true">
           <ng-template kendoTabContent>
-            <div class="content">
+            <div class="tabcontent">
               <app-address></app-address>
             </div>
           </ng-template>
         </kendo-tabstrip-tab>
         <kendo-tabstrip-tab [title]="'Location'">
           <ng-template kendoTabContent>
-            <div class="content">
+            <div class="tabcontent">
               <app-location></app-location>
             </div>
           </ng-template>
         </kendo-tabstrip-tab>
         <kendo-tabstrip-tab [title]="'Similar Address'">
           <ng-template kendoTabContent>
-            <div class="content">
+            <div class="tabcontent">
               <app-simaddress></app-simaddress>
             </div>
           </ng-template>
         </kendo-tabstrip-tab>
       </kendo-tabstrip>
     </div>
-    <div class="col-md-2">
+    <div class="col-2">
       <app-contact></app-contact>
     </div>
   </div>

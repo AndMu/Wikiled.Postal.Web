@@ -11,10 +11,10 @@ export class PostalService {
     constructor(private http: HttpClient) {
     }
 
-    public sendForm(forn: ContactForm) {
-        this.http.post(`http://api.topostcode.co.uk/contact`, forn);
+    public sendForm(form: ContactForm) {
+        this.http.post(`http://api.topostcode.co.uk/contact`, form).subscribe();
     }
-    
+
     public findSimAddress(code: string): Observable<AddressData[]> {
         return this.getData<AddressData[]>('SimAddress', code);
     }

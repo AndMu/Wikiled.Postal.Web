@@ -1,25 +1,28 @@
-<form class="form-horizontal">
-  <div class="form-group">
-    <kendo-textbox-container floatingLabel="Your Name">
-      <input kendoTextBox />
-    </kendo-textbox-container>
-  </div>
-  <div class="form-group">
-    <kendo-textbox-container floatingLabel="Your Email">
-      <input kendoTextBox />
-    </kendo-textbox-container>
-  </div>
-  <div class="form-group">
-    <kendo-textbox-container floatingLabel="Subject">
-      <input kendoTextBox />
-    </kendo-textbox-container>
-  </div>
-  <div class="form-group">
-    <textarea class="form-control" rows="3"></textarea>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Send</button>
-    </div>
-  </div>
-</form>
+<div class="card contact">
+  <form class="form col-md-12 center-block" (ngSubmit)="onSubmit()" [formGroup]="form">
+    <fieldset>
+      <legend>Contact Us</legend>
+      <div class="form-group">
+        <kendo-textbox-container floatingLabel="Your Name">
+          <input kendoTextBox name="name" formControlName="name"/>
+        </kendo-textbox-container>
+      </div>
+      <div class="form-group">
+        <kendo-textbox-container floatingLabel="Your Email">
+          <input kendoTextBox name="email" formControlName="email"/>
+        </kendo-textbox-container>
+      </div>
+      <div class="form-group">
+        <kendo-textbox-container floatingLabel="Subject">
+          <input kendoTextBox name="subject" formControlName="subject" />
+        </kendo-textbox-container>
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" rows="3" name="text" formControlName="text"></textarea>        
+      </div>
+      <div class="pull-right">
+        <button type="submit" [disabled]="form.invalid">Send</button>
+      </div>
+    </fieldset>
+  </form>
+</div>

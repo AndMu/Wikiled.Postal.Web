@@ -1,0 +1,14 @@
+.contact {
+  margin: 40px 0 0 0;
+  padding: 10px 10px 10px 10px;
+  width: 250px;
+}
+
+.pull-right {
+  float: right !important;
+}
+
+.ng-untouched .ng-invalid 
+{
+   border-color: rgba(33, 37, 41, 0.15);
+}
