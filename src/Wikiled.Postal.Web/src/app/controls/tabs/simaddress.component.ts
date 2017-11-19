@@ -12,7 +12,7 @@ import 'rxjs/add/operator/switchMap'; // just switchMap
     styleUrls: ['./tab.component.css']
 })
 
-export class SimAddressComponent implements OnInit  {
+export class SimAddressComponent implements OnInit {
 
     public description = 'It can be also used as autocomplete. With minimum 3 letters lentgh and max 10 results back.';
 
@@ -25,7 +25,10 @@ export class SimAddressComponent implements OnInit  {
     ngOnInit() {
     }
 
-   public onSearch(event): void {
+    public onDataChanged(event): void {
+    }
+
+    public onSearch(event): void {
 
         if (event != null && event.length >= 3) {
             this.postalService.findSimAddress(event)
