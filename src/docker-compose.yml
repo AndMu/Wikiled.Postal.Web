@@ -1,8 +1,8 @@
 version: "3"
 
 services:
-  postalweb:        
-    build:
+  postalweb:            
+    build:      
       context: .
       dockerfile: wikiled.postal.web/dockerfile    
     ports:

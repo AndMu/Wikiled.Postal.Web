@@ -1,8 +1,7 @@
 version: '2'
 
 services:
-  Postal:
-    image: Postal:debug
+  postalweb:    
     build:
       context: .
       dockerfile: Dockerfile.debug
