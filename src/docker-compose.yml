@@ -1,9 +1,9 @@
 version: "3"
 
 services:
-  wikiled.postal.web:    
+  wikiled.postal.web:        
     build:
-      context: ./wikiled.postal.web
-      dockerfile: dockerfile    
+      context: .
+      dockerfile: wikiled.postal.web/dockerfile    
     ports:
       - "80:80"
