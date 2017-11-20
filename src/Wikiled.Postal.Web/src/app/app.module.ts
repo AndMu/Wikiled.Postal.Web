@@ -12,10 +12,9 @@ import { DialogModule } from '@progress/kendo-angular-dialog';
 import { AppComponent } from './app.component';
 import { PanelBarModule } from '@progress/kendo-angular-layout';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {
-    MatButtonModule, MatCheckboxModule, MatInputModule, MatAutocompleteModule, MatProgressSpinnerModule
-
+import { MatButtonModule, MatCheckboxModule, MatInputModule, MatAutocompleteModule, MatProgressSpinnerModule
 } from '@angular/material';
+import { AngularWebStorageModule } from 'angular-web-storage';
 
 // Import the Animations module
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,7 +28,7 @@ import { AppNavbarComponent } from './controls/app-navbar/app-navbar.component';
 import { AddressComponent } from './controls/tabs/address.component';
 import { LocationComponent } from './controls/tabs/location.component';
 import { SearchComponent } from './controls/search/search.component';
-import { SimAddressComponent } from './controls/tabs/simaddress.component';
+import { AutoAddressComponent } from './controls/tabs/autoaddress.component';
 import { ContactComponent } from './controls/contact/contact.component';
 
 
@@ -41,10 +40,11 @@ import { ContactComponent } from './controls/contact/contact.component';
         LocationComponent,
         SearchComponent,
         AddressComponent,
-        SimAddressComponent,
+        AutoAddressComponent,
         ContactComponent
     ],
     imports: [
+        AngularWebStorageModule,
         DialogModule,
         LayoutModule,
         PanelBarModule,

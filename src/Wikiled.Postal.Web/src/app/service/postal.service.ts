@@ -15,8 +15,8 @@ export class PostalService {
         this.http.post(`http://api.topostcode.co.uk/contact`, form).subscribe();
     }
 
-    public findSimAddress(code: string): Observable<AddressData[]> {
-        return this.getData<AddressData[]>('SimAddress', code);
+    public findAutoComplete(code: string): Observable<AddressData[]> {
+        return this.getData<AddressData[]>('AutoComplete/Address', code);
     }
 
     public findLocation(code: string): Observable<PostalData[]> {

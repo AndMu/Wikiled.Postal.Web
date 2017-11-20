@@ -57,7 +57,6 @@ export class SearchComponent implements OnInit, AfterViewInit {
     }
 
     public onValueChangePost(event: any): void {
-
         this.onSearch.emit(event);
     }
 

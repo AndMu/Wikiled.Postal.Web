@@ -1,5 +1,6 @@
 <div class="tab">
   <p *ngIf="description && description.length > 0" class="lead">{{description}}</p>
   <app-search (onSearch)="onSearch($event)" (onDataChanged)="onDataChanged($event)" [url]="url"></app-search>
+  <a href="{{fullurl}}">{{fullurl}}</a>
   <app-result [result]="data"></app-result>
 </div>
