@@ -1,14 +1,16 @@
-FROM microsoft/aspnetcore-build:latest AS build
+FROM microsoft/aspnetcore-build:latest AS builder
+WORKDIR /source
 
-WORKDIR /code
+COPY *.csproj .
+RUN dotnet restore
 
-COPY Wikiled.Postal.Web .
-RUN dotnet publish --output /output --configuration Release
+# copies the rest of your code
+COPY . .
+RUN dotnet publish --output /app/ --configuration Release
 
+# Stage 2
 FROM microsoft/aspnetcore:latest
-
-COPY --from=build /output /app
-
 WORKDIR /app
+COPY --from=builder /app .
+ENTRYPOINT ["dotnet", "Wikiled.Postal.Web.dll"]
 
-ENTRYPOINT [ "dotnet", "Wikiled.Postal.Web.dll" ]
