@@ -29,7 +29,6 @@ export class AddressComponent implements OnInit  {
     }
 
     public onDataChanged(event): void {
-        this.data = event;
     }
 
     public onSearch(event): void {
