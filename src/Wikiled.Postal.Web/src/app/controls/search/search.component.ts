@@ -60,8 +60,7 @@ export class SearchComponent implements OnInit, AfterViewInit {
         this.onSearch.emit(event);
     }
 
-    public onSearchClick(): void {
-        this.googleAnalyticsEventsService.emitEvent("BasicTracking", "Clicked", this.autocomplete.value, 10);
+    public onSearchClick(): void {        
         this.onSearch.emit(this.autocomplete.value);
     }
 
