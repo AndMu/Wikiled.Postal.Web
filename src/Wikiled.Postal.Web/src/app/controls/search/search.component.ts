@@ -1,13 +1,12 @@
 import { Component, ViewChild, OnInit, EventEmitter, Output, Input, AfterViewInit } from '@angular/core';
 import { PostalService } from '../../service/postal.service';
 import { PostalData } from '../../service/postal.Model';
-import { GoogleAnalyticsEventsService } from "../../service/analytics.service";
 import 'rxjs/add/operator/map'; // imports just map
 import 'rxjs/add/operator/mergeMap'; // just mergeMap
 import 'rxjs/add/operator/switchMap'; // just switchMap
 
 @Component({
-    providers: [PostalService, GoogleAnalyticsEventsService],
+    providers: [PostalService],
     selector: 'app-search',
     templateUrl: './search.component.html',
     styleUrls: ['./search.component.css']
@@ -30,7 +29,7 @@ export class SearchComponent implements OnInit, AfterViewInit {
     @Output()
     public onSearch = new EventEmitter<string>();
 
-    constructor(private postalService: PostalService, public googleAnalyticsEventsService: GoogleAnalyticsEventsService) {}
+    constructor(private postalService: PostalService) {}
 
     ngOnInit() {
     }
